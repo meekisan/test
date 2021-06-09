@@ -7,6 +7,15 @@ pipeline {
 	stage('Example') {
         environment { 
                 DEBUG_FLAGS = '-g'
+                CC = """${sh(
+                returnStdout: true,
+                script: 'echo "clang"'
+            )}""" 
+        // Using returnStatus
+        EXIT_STATUS = """${sh(
+                returnStatus: true,
+                script: 'exit 1'
+            )}"""
         }
         steps {
                 sh 'printenv'
