@@ -16,6 +16,10 @@ pipeline {
                 returnStatus: true,
                 script: 'exit 1'
             )}"""
+            
+        ACCESS_KEY_ID     = credentials('jenkins-secret-key-id')
+        SECRET_ACCESS_KEY = credentials('jenkins-secret-access-key')
+    
         }
         steps {
                 sh 'printenv'
